@@ -1,0 +1,32 @@
+# maven-site-action
+
+GitHub action
+
+## Usage
+
+```yml
+name: Build develop
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: read
+
+    steps:
+      - uses: tiogars/maven-site-action@v1
+        with:
+          github-repository: ${{ github.repository }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+```
