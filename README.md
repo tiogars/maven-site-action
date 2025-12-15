@@ -5,7 +5,7 @@ GitHub action
 ## Usage
 
 ```yml
-name: Build develop
+name: Maven site
 
 on:
   push:
