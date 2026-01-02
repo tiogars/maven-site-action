@@ -23,9 +23,15 @@ runs:
         distribution: temurin
         java-version: 21
         cache: maven
+        server-id: github
+        server-username:  GITHUB_ACTOR
+        server-password:  GITHUB_TOKEN
 
     - run: mvn site
       shell: bash
+      env:
+        GITHUB_ACTOR: ${{ github.actor }}
+        GITHUB_TOKEN: ${{ inputs.github-token }}
 
     - name: Publish site to gh-pages branch
       run: |
