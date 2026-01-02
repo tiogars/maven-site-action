@@ -22,8 +22,9 @@ runs:
       with:
         distribution: temurin
         java-version: 21
+        cache: maven
 
-    - run: mvn clean site
+    - run: mvn site
       shell: bash
 
     - name: Publish site to gh-pages branch
